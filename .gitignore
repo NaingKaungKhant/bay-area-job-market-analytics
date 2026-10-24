@@ -1,0 +1,55 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python caches, packaging and test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Credentials and local configuration; keep the safe example
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+
+# Local databases and journals
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Source data and derived row-level exports are private by default
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+
+# Temporary files and unreviewed local outputs
+*.log
+*.tmp
+*.temp
+*~
+/tmp/
+/temp/
+/cache/
+/outputs/
+.DS_Store
+
+# Documentation, source, SQL, notebooks, and reviewed reports stay trackable.
+# Review source permissions and embedded data before publishing Tableau workbook/extract or report assets.

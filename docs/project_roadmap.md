@@ -1,0 +1,60 @@
+# Six-phase project roadmap
+
+Phase 1 is the only implemented phase. Estimates are planning ranges in focused learner-hours, not measured effort or deadlines. Credential approvals, provider responses, Tableau edition/access checks and optional prospective observation windows can add calendar time. Each phase requires acceptance of the previous phase; only explicit user approval permits starting Phase 2.
+
+| Phase | Goals | Planned deliverables | Acceptance criteria | Dependencies | Estimated effort |
+|---|---|---|---|---|---|
+| 1 — Setup, Business Understanding, Data Feasibility | Establish scope, business value, measurement contracts and feasible sources | README, five design documents, requirements, safe config and folder skeleton | Required files exist; official evidence is linked; definitions agree; limitations/blockers recorded; no postings or future-phase implementation | Accessible official docs and authorized workspace | 6–10 hours |
+| 2 — Data Acquisition & Data Profiling | Establish a permitted, reproducible sample and assess whether questions are answerable | Source/permission decision, versioned frame/query plan, permitted raw snapshots and manifests, profiling notebook/report, field dictionary, missingness/duplicate/coverage assessment | Explicit user approval; terms and retention cleared before collection; requests use approved limits; provenance and pages accounted for; all four roles and geography assessed; unsupportable KPIs disabled or revised | Phase 1 accepted, approved source/frame/budget, credentials if required | 8–14 hours, excluding access delays and any prospective collection period |
+| 3 — Data Cleaning, Validation & SQL Database | Turn observed records into auditable, validated relational data | Versioned cleaning/classification/skill rules, source adapters and ETL, SQLite DDL/database locally, validation audit, meaningful pytest tests, reusable SQL | Input/output counts reconcile; PK/FK/unique checks pass; sample classifications reviewed; dedup and salary decisions auditable; multi-location/skill joins do not inflate totals; end-to-end local rerun works | Phase 2 sample and field/permission review; finalized mapping rules | 14–24 hours |
+| 4 — Exploratory & Statistical Analysis | Answer supported questions with descriptive distributions and uncertainty | Reproducible notebooks, SQL KPI queries, charts, coverage tables, effect-size/comparison notes and findings report | Every number traceable to a versioned cohort/query; salary/text coverage visible; small groups labeled; assumptions and selection bias discussed; no causal/hiring claims; temporal analysis only if valid | Phase 3 validated data; stable cohort definitions | 10–18 hours |
+| 5 — Tableau Dashboard | Provide interactive views of observed job demand, salary comparisons, technical skills and geographic distributions | Clean, analysis-ready CSV exports from validated SQL queries; export dictionary/manifest; Tableau workbook (.twb or .twbx) with worksheets, filters and dashboard actions; SQL reconciliation checklist; refresh guide and permitted screenshots; Tableau Public link only if publication is cleared | Dashboard counts, shares, salary medians and coverage reconcile with SQL for the same filters; all four dashboard topics covered where supported; city non-additivity and unknowns visible; no averaging of subgroup medians; no duplicate inflation; CSV schema/quality and publication review pass; local refresh/republication documented | Phase 4 validated metrics; Tableau Desktop Public Edition or Tableau Desktop on supported macOS; appropriate edition/license; source storage and publication rights; Public account only if publishing | 10–18 hours |
+| 6 — Business Recommendations, GitHub Portfolio & Resume | Communicate evidence, decisions and project ownership | Executive brief, actionable recommendations with caveats, polished README, reproducibility guide, permitted portfolio assets and truthful resume bullets | Recommendations trace to findings; repository has no secrets/restricted data; setup rerun verified; completed/planned work accurately labeled; limitations and sample dates visible | Accepted analysis/dashboard and publication rights | 6–10 hours |
+
+Total indicative effort: 54–94 focused hours. This sum does not imply current completion of any later phase.
+
+## Five-day accelerated development target
+
+Target: complete the remaining work in five focused development days after explicit Phase 2 approval and resolution of source/access prerequisites. Phase 1 is already complete and is preparation for this accelerated window. The earlier roadmap did not record a five-day schedule; this update makes the requested target explicit without changing Phases 1–4 or Phase 6 deliverables, acceptance criteria or effort estimates.
+
+| Development day | Primary focus | End-of-day target |
+|---|---|---|
+| Day 1 | Phase 2 | Permitted acquisition, manifest and profiling assessment; source/coverage blockers surfaced |
+| Day 2 | Phase 3 | Validated cleaning workflow, relational database, rule audit and meaningful checks |
+| Day 3 | Phase 4 | Reconciled SQL metrics, exploratory analysis and documented findings/limitations |
+| Day 4 | Phase 5 | Analysis-ready SQL-to-CSV exports, interactive Tableau dashboard, metric reconciliation and publication review |
+| Day 5 | Phase 6 | Business brief, reproducibility/portfolio review, permitted assets and truthful resume bullets |
+
+The unchanged remaining effort estimate is 48–84 hours, averaging 9.6–16.8 hours per development day; Phase 3 alone is estimated at 14–24 hours. This is an ambitious accelerated target, not a guaranteed five-day delivery or a normal-hours schedule. Work may need to carry between days. Provider approvals and prospective observation time are prerequisites/calendar delays, not work that can be compressed into this target. If capacity or evidence is insufficient, report the slip and revise the schedule with the user; do not bypass quality criteria, invent findings or start an unapproved phase.
+
+## Phase 5 Tableau delivery contract
+
+### Authoring on macOS
+
+Use Tableau Desktop Public Edition for this personal educational portfolio, or an appropriate Tableau Desktop edition on macOS. Confirm the selected version supports the machine before Phase 5; no Windows setup is required by this plan. Tableau Desktop Free Edition and Public Edition have different publishing capabilities: Free Edition cannot publish to Tableau Public, while Public/Professional can. Keep a local workbook while permissions are unresolved; any later publication requires explicit authorization and source clearance. See the official [edition comparison](https://help.tableau.com/current/pro/desktop/en-us/desktop_comparison.htm), [Mac specifications](https://www.tableau.com/products/techspecs) and [publishing guidance](https://help.tableau.com/current/pro/desktop/en-us/publish_workbooks_tableaupublic.htm), checked October 23, 2026. Actual installation and licensing were not verified.
+
+### SQL-to-CSV preparation and dashboard design
+
+Phase 5 will consume the validated SQL database and Phase 4 metrics. Prepare UTF-8 CSV exports with stable headers, explicit column types/grain/keys, ISO dates, documented nulls, numeric USD salary units, role/city identifiers and cohort/rule versions. Record SQL query/version, reporting window, export timestamp, row count and source snapshot in an export manifest. Validate unique keys, missing/invalid values and totals before import. These are planned exports; no CSVs are created in this documentation update.
+
+Plan four coordinated views: role counts/shares for observed job demand; eligible annual advertised-pay comparisons with sample size and salary coverage; technical skill mentions with role-specific denominators/text coverage; and a city map or ranked city view using confirmed geography. Label city counts non-additive and retain county-only/unknown geography diagnostics. Filters may include role, city, explicit seniority, arrangement and reporting window only when supported by the data and exported grain. Cross-filter actions and reset controls must preserve the KPI definitions.
+
+Use separate SQL result tables/worksheets for role, pay, skill and geographic measures instead of joining aggregate skill and city rows into an inflated fact table. Prepare SQL-approved results for the supported filter combinations or recompute from an appropriately permission-cleared detail source; disable unsupported filter combinations. Never sum distinct counts across overlapping cities, average medians, or average percentages with different denominators.
+
+Acceptance requires matching Tableau to SQL under default and representative filtered states, including multi-city, missing-salary and unknown-arrangement cases. Counts must match exactly; percentages and salaries must match at documented display precision using the same rounding rule. Confirm salary eligibility, denominator/coverage, minimum sample-size suppression and geographic scope. Store the reconciliation evidence and document any unavailable views instead of substituting invented values.
+
+### Tableau Public privacy and publication gate
+
+Tableau Public is a public publishing destination, not private hosting. Published workbooks/data are publicly accessible, and publishing creates an extract. Use only source-authorized, publication-cleared CSVs and fields. Aggregation alone does not grant redistribution rights. Remove raw descriptions, contact information, credentials, source-native posting identifiers and unnecessary detail from publication exports. Inspect the entire workbook/extract, including hidden worksheets and unused fields, before upload; hiding a view or disabling downloads is not a confidentiality control.
+
+If publication rights are unresolved, keep the workbook and permitted data local and mark the public link as blocked. Do not upload restricted data to obtain a portfolio URL. Screenshots, GitHub workbook files and packaged .twbx files also require review because packaging can include data. The [Tableau Public FAQ](https://help.tableau.com/current/pro/desktop/en-us/public_faq.htm) explains public visibility, download behavior and that CSV sources do not support automatic refresh. Plan a manual SQL export, local CSV refresh, recheck and authorized republication workflow; do not imply a live SQLite connection or automatic Public refresh.
+
+## Phase 2 entry decision
+
+Review the [source gates](data_source_feasibility.md), approve a selected-board primary or the conditional API fallback, and confirm the scope and KPI rules. Define a collection window and an acceptable effort/budget before making requests. Role/city sample sufficiency is unknown until authorized profiling; a disappointing sample is a finding, not permission to fabricate data or quietly change the frame.
+
+If permissions or coverage fail, revise the design and seek an explicit scope decision. Skip unsupported measures rather than filling gaps with invented values. The optional snapshot/history tables become necessary if repeated observations are used. Publication-time analysis may be omitted while the rest of the project remains valid.
+
+## Planned portfolio deliverables after all phases
+
+A documented repository; permitted acquisition and cleaning workflow; tested local SQLite model; explanatory SQL and Jupyter analysis; approved figures and reporting tables; a Tableau dashboard; and an evidence-based business brief. Resume bullets will describe only work actually completed and measured results. Phase 1 itself contains no empirical findings.

@@ -1,0 +1,11 @@
+# Planned runtime: Python 3.11+. Install only when preparing the local environment.
+# Initial bounds, not a tested lockfile; record resolved versions after Phase 2 setup.
+pandas>=2.2,<3
+numpy>=1.26,<3
+matplotlib>=3.8,<4
+seaborn>=0.13,<0.14
+notebook>=7,<8
+requests>=2.32,<3
+python-dotenv>=1,<2
+pytest>=8,<10
+# SQLite (sqlite3) is part of Python. Tableau and Git are installed separately.
