@@ -1,6 +1,11 @@
 # Proposed architecture
 
-Phase 1 conceptual design only. No SQL DDL, database, ETL, analytical queries, or dashboard has been implemented.
+## Active source amendment — October 26, 2026
+
+The approved Phase 2 source is a complete, pinned historical Luke CSV rather than a live job API. Raw storage contains immutable CSV plus source/license evidence and manifest. The generic source-native ID/description/salary-band fields in the conceptual schema below are not available in this source; leave them unavailable rather than inventing IDs, descriptions or pay bounds. A future record lineage key may identify a file row, not an independently verified unique posting. Store inherited role/skill/salary provenance distinctly. The dimensions/bridges/SQLite architecture remains proposed Phase 3 work; only acquisition and profiling are implemented. See [Phase 2 results](../reports/phase2_status.md).
+
+
+Historical Phase 1 conceptual architecture. SQL DDL/database, production ETL, analytical queries and dashboard remain unimplemented. Phase 2 acquisition/profiling now exist as described in the source amendment above.
 
 ```text
 Approved Data Source

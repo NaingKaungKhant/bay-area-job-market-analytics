@@ -1,0 +1,19 @@
+{
+  "source": "lukebarousse/data_jobs",
+  "revision": "ed776e5a0a8c40ea9d5efbd800772ae52e140f3e",
+  "review_status": "cleared_for_local_phase2",
+  "approval_date": "2026-10-26",
+  "approval_basis": "User explicitly approved Luke dataset after historical/derived-field limitations were explained.",
+  "license": "Apache-2.0",
+  "license_evidence": "https://huggingface.co/datasets/lukebarousse/data_jobs/blob/ed776e5a0a8c40ea9d5efbd800772ae52e140f3e/README.md",
+  "license_text": "https://www.apache.org/licenses/LICENSE-2.0",
+  "permissions": {
+    "download": true,
+    "local_storage": true,
+    "local_analysis": true,
+    "redistribute_raw": false,
+    "publish_outputs": "review_license_attribution_and_embedded_data_before_publication"
+  },
+  "retention_policy": "No additional retention period asserted; retain the pinned local educational snapshot and preserve license/provenance. Raw files stay ignored by Git.",
+  "limitations": "Publisher license declaration accepted for local educational use; upstream ownership not independently verified. No permission asserted for separately fetched employer text. No live scraping."
+}

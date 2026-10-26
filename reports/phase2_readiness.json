@@ -1,0 +1,10 @@
+{
+  "status": "phase2_complete_for_approved_historical_source",
+  "source": "lukebarousse/data_jobs",
+  "revision": "ed776e5a0a8c40ea9d5efbd800772ae52e140f3e",
+  "observed_record_count": 785741,
+  "preliminary_bay_area_rows": 15892,
+  "raw_sha256": "635241ed09ccee18bdae1f83b45f26d6759e0aa2513c529f6190e9054062436c",
+  "phase3_started": false,
+  "limits": "See phase2_status.md; raw record diagnostics are not validated job-market KPIs."
+}

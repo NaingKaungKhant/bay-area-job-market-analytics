@@ -1,1 +1,1 @@
-"""Bay Area job market analytics package placeholder; Phase 1 has no ETL code."""
+"""Bay Area job market analytics; Phase 2 offline readiness and profiling support."""

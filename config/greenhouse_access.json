@@ -1,0 +1,18 @@
+{
+  "source": "greenhouse",
+  "review_status": "pending",
+  "reviewed_by": null,
+  "reviewed_on": null,
+  "valid_until": null,
+  "evidence_reference": null,
+  "retention_policy": null,
+  "permitted_board_tokens": [],
+  "permissions": {
+    "automated_collection": false,
+    "local_storage": false,
+    "local_analysis": false,
+    "publish_aggregates": false,
+    "redistribute_raw": false
+  },
+  "note": "No permission inferred from public GET access. Do not mark cleared without reviewed evidence. A flag is an attestation, not permission. Confidential evidence belongs outside Git."
+}

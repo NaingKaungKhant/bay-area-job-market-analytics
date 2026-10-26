@@ -1,6 +1,6 @@
 # Six-phase project roadmap
 
-Phase 1 is the only implemented phase. Estimates are planning ranges in focused learner-hours, not measured effort or deadlines. Credential approvals, provider responses, Tableau edition/access checks and optional prospective observation windows can add calendar time. Each phase requires acceptance of the previous phase; only explicit user approval permits starting Phase 2.
+Phases 1 and 2 are complete for the approved historical Luke dataset. Phase 2 acquired and profiled the pinned CSV and documented unsupported metrics. Phase 3 has not started and requires approval. See the [Phase 2 status report](../reports/phase2_status.md). Estimates are planning ranges in focused learner-hours, not measured effort or deadlines. Credential approvals, provider responses, Tableau edition/access checks and optional prospective observation windows can add calendar time. Each phase requires acceptance of the previous phase; only explicit user approval permits starting Phase 2.
 
 | Phase | Goals | Planned deliverables | Acceptance criteria | Dependencies | Estimated effort |
 |---|---|---|---|---|---|
@@ -51,7 +51,7 @@ If publication rights are unresolved, keep the workbook and permitted data local
 
 ## Phase 2 entry decision
 
-Review the [source gates](data_source_feasibility.md), approve a selected-board primary or the conditional API fallback, and confirm the scope and KPI rules. Define a collection window and an acceptable effort/budget before making requests. Role/city sample sufficiency is unknown until authorized profiling; a disappointing sample is a finding, not permission to fabricate data or quietly change the frame.
+The source decision is now approved: the pinned Luke historical dataset, with active business/KPI amendments. See the [source record](data_attribution.md). For any future source switch, review the [source gates](data_source_feasibility.md) and obtain approval. Define a collection window and an acceptable effort/budget before making requests. Role/city sample sufficiency is unknown until authorized profiling; a disappointing sample is a finding, not permission to fabricate data or quietly change the frame.
 
 If permissions or coverage fail, revise the design and seek an explicit scope decision. Skip unsupported measures rather than filling gaps with invented values. The optional snapshot/history tables become necessary if repeated observations are used. Publication-time analysis may be omitted while the rest of the project remains valid.
 

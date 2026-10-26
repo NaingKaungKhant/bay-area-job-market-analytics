@@ -1,0 +1,16 @@
+{
+  "version": "phase2-pilot-v1",
+  "source": "greenhouse",
+  "selection_status": "conditional_primary_no_collection_authorized_until_permissions_clear",
+  "purpose": "personal_educational_portfolio",
+  "board_tokens": [],
+  "frame_selection_rule": "Predeclare all permission-covered employer boards before inspecting postings; retain all returned roles and locations for profiling, not a favorable subset.",
+  "geography_counties": ["Alameda", "Contra Costa", "Marin", "Napa", "San Francisco", "San Mateo", "Santa Clara", "Solano", "Sonoma"],
+  "target_roles": ["Data Analyst", "Data Scientist", "Data Engineer", "Machine Learning Engineer"],
+  "collection_mode": "single_snapshot_after_clearance",
+  "pilot_max_requests": 10,
+  "request_interval_seconds": 2,
+  "budget_usd": 0,
+  "retention": "Must follow reviewed source-specific permission; no default grant or duration.",
+  "publication_time_trends": "disabled_pending_valid_publication_dates_and_comparable_temporal_coverage"
+}

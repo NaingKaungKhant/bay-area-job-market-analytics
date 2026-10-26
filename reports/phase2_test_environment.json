@@ -1,0 +1,31 @@
+{
+  "recorded_on": "2026-10-26",
+  "source": "lukebarousse/data_jobs",
+  "project_python": "3.12.7",
+  "project_package_versions": {
+    "pytest": "9.1.1",
+    "pandas": "2.2.2",
+    "numpy": "1.26.4",
+    "requests": "2.32.3",
+    "nbformat": "5.10.4",
+    "nbclient": "0.8.0",
+    "ipykernel": "6.28.0"
+  },
+  "profiling_runtime": {
+    "python": "3.12.14",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "kind": "bundled workspace Python"
+  },
+  "test_command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python -m pytest -q",
+  "tests_passed": 98,
+  "notebook_execution": "nbformat validation + successful nbclient run against verified real raw snapshot/profile",
+  "independent_csv_check": "stdlib csv scan reconciles row/year/city/annual-value/skill coverage and county totals",
+  "hermetic_lockfile": false,
+  "limitations": [
+    "Project virtualenv inherits system packages; full clean-install reproducibility not claimed.",
+    "Bundled profiling and project test environments differ; raw hashes, independent CSV counts and tests verify this run.",
+    "Earlier attempts to use bundled Python with only the project pytest path lacked pygments; the full project test environment was used successfully.",
+    "Jupyter used approved local kernel execution outside the sandbox; debugger warnings were non-fatal."
+  ]
+}

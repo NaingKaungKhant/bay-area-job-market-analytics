@@ -1,116 +1,91 @@
-# Bay Area Tech Job Market Intelligence & Skills Demand Analytics
+# 2023 Bay Area Data Jobs & Skills Analysis
 
-**Current status: Phase 1 — setup, business understanding and documentation-based source feasibility complete. Phase 2 awaits explicit approval and source clearance.**
+**Status: Phase 2 acquisition and raw-data profiling complete. Phase 3 has not started and requires approval.**
 
-This portfolio project is designed for an Applied Mathematics graduate preparing for entry-level Data Analyst roles. It will demonstrate how to turn imperfect job advertisements into auditable business measures using Python, SQL, relational design, statistics and analytical storytelling. No postings have been collected and no salary, skill or hiring findings are available yet.
+An end-to-end Data Analyst portfolio project examining historical data-career advertisements in the nine-county San Francisco Bay Area. The approved source is Luke Barousse's 2023 dataset. This is a historical observed-record study, not current market intelligence or a count of actual hires.
 
 ## Business problem and objectives
 
-A hypothetical workforce intelligence/recruitment analytics company wants to compare advertised tech-role demand, salary bands and technical skills across the San Francisco Bay Area. Inconsistent titles, duplicate advertisements, missing pay and multi-city listings can produce misleading comparisons. The project will make those decisions explicit and reproducible.
+A hypothetical workforce intelligence/career-services team wants to understand advertised data-career roles, inherited skill tags and geographic differences to help graduates prioritize learning. Inconsistent titles, missing pay, duplicate candidates and preprocessed fields require transparent definitions.
 
-Planned objectives are to build a documented sample, classify roles transparently, normalize locations and pay, validate a local relational database, answer supported questions in SQL/Python and communicate results through Tableau and a business brief. Observed advertisements are not actual hiring activity, headcount or a complete count of vacancies.
+The project will demonstrate reproducible Python ingestion, relational design, SQL, statistical reasoning and Tableau. Acquisition and quality profiling are implemented; production cleaning, SQLite, business analysis and the dashboard remain planned. Source limitations are documented instead of filled with invented values.
 
-## Scope
+## Scope and analytical questions
 
-Geography follows the nine-county Bay Area: Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo, Santa Clara, Solano and Sonoma. This includes San Francisco, San Jose, Oakland, Palo Alto, Mountain View, Sunnyvale, Santa Clara, Cupertino, Redwood City, Menlo Park, Fremont, Berkeley and other eligible places. See the [scope rules and official geographic reference](docs/business_requirements.md).
+Geography includes Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo, Santa Clara, Solano and Sonoma counties, including the requested San Francisco, San Jose, Oakland, Palo Alto, Mountain View, Sunnyvale, Santa Clara, Cupertino, Redwood City, Menlo Park, Fremont and Berkeley cities. Phase 2 uses a conservative exact city/state diagnostic across 101 incorporated-city references; unincorporated, vague and multi-location evidence remains for later review.
 
-The four target roles are Data Analyst, Data Scientist, Data Engineer and Machine Learning Engineer across employer industries and seniorities. Ambiguous titles remain reviewable; vendor labels and keywords alone do not force a role assignment. Seniority and employment type will be separate filters.
+Target roles are Data Analyst, Data Scientist, Data Engineer and Machine Learning Engineer across industries and seniorities. Publisher labels are evidence, not our final accepted classifications. Ambiguous original titles remain reviewable; senior labels will not be silently discarded or merged. Remote eligibility and actual work location stay distinct; search_location and employer headquarters do not establish a Bay Area job location.
 
-Core geographic membership requires an explicit qualifying work location. Nationwide remote-accessible jobs without that association are separate from core totals. Hybrid and on-site locations follow the same county boundary. Unknown/conflicting arrangements stay visible. A multi-city posting counts once regionally and once in each explicitly listed eligible city; city counts are non-additive.
+Supported candidate questions, subject to later validation:
 
-## Planned analytical questions
+1. How are historical retained records distributed across the four target roles and explicit title-based seniority?
+2. Which publisher-extracted skill tags occur within roles, and what usable-tag coverage supports comparisons?
+3. How do role/skill distributions differ across eligible cities, with small samples and multi-location rules visible?
+4. What does missingness tell us about the reliability of role, location and pay comparisons?
+5. What can comparable publisher-derived annual salary values show, once original units/meaning are established?
 
-1. What is the count and share of observed postings for each target role?
-2. How do comparable advertised annual base-pay distributions differ by role and explicit seniority?
-3. Which technical skills are mentioned within each role, given available description coverage?
-4. How do role mix and skill mentions vary across eligible cities?
-5. What seniority and minimum-experience requirements are explicitly stated?
-6. What remote, hybrid and on-site shares can be explicitly identified, and what is unknown?
-7. Only with valid dates and comparable coverage, how do observed posting counts change over time?
+Original-text skill requirements, verified advertised salary midpoints, detailed experience requirements, explicit hybrid/on-site shares and population hiring trends are unavailable in this source. No assumption that missing/false flags mean no requirements or on-site work is permitted. The [business requirements](docs/business_requirements.md) and [KPI dictionary](docs/kpi_dictionary.md) contain active dataset amendments and the original stricter conceptual reference.
 
-## Proposed KPIs
+## Source, license and measured Phase 2 coverage
 
-Unique observed postings; posting share by role; median advertised annual base-pay midpoint; salary coverage; skill mention frequency; skill mention percentage by role; postings by city; arrangement shares and identification coverage; and conditional publication-time posting counts.
+Source: [Luke Barousse data_jobs](https://huggingface.co/datasets/lukebarousse/data_jobs/blob/ed776e5a0a8c40ea9d5efbd800772ae52e140f3e/README.md), pinned revision `ed776e5a0a8c40ea9d5efbd800772ae52e140f3e`. The publisher declares Apache-2.0. See [data attribution](docs/data_attribution.md) and the [license copy](docs/data_licenses/Apache-2.0.txt). No employer pages were scraped and no credentials were used. Raw redistribution is not enabled; any public outputs require an attribution/embedded-data review.
 
-The [KPI dictionary](docs/kpi_dictionary.md) defines formulas, fields, quality conditions, biases and interpretation. Primary pay metrics exclude estimated salaries, missing/open-ended ranges and hourly conversions. Skill percentages use postings with usable text and disclose text coverage. No KPI results exist in Phase 1.
+The verified 231,152,089-byte CSV contains **785,741 raw records and 17 fields**, all with source dates in 2023. Preliminary exact-city matching finds **15,892 records across 87 cities and all nine counties**. These are data-quality diagnostics, not final unique-posting counts or market findings. The [Phase 2 report](reports/phase2_status.md) records role coverage, missingness, duplicate candidates and limitations.
 
-## Planned technology and architecture
+Publisher-derived annual salary values appear in 1,584 preliminary Bay Area records (9.97%); populated inherited skill lists appear in 13,737 (86.44%). All matched work-from-home flags are False, which cannot distinguish hybrid from on-site. Original descriptions, native posting IDs, salary bounds/currency/provenance are absent. No salary median, skill ranking or hiring trend has been calculated.
 
-Python 3.11+, pandas, numpy, SQLite via Python's built-in sqlite3, SQL, matplotlib, seaborn, Jupyter Notebook, Tableau, pytest, Git and GitHub. requests and python-dotenv are planned for approved API access and local configuration. Tableau is external software, not a Python package. Plan to use Tableau Desktop Public Edition or an appropriate Tableau Desktop edition on macOS. Published Tableau Public content is public; upload only source-cleared CSVs/workbooks after a publication review, and keep restricted work local. Confirm edition and Mac compatibility before Phase 5.
+Greenhouse/Adzuna research and the USAJOBS proposal remain historical alternatives; the active source is Luke's dataset. The blocked Greenhouse configuration is retained separately, never silently cleared.
 
-```text
-Approved Data Source -> Raw Data -> Python Cleaning & Validation
-  -> SQLite -> SQL Analytics -> Dashboard-Ready Tables -> Tableau -> Business Insights
-```
+## Technology and planned architecture
 
-The [architecture document](docs/architecture.md) proposes company/location/skill dimensions, one canonical-posting fact, posting-skill and posting-location bridges, source provenance and optional collection history. Tables and pipelines are designs only; no SQL schema or database exists yet.
-
-## Data source status
-
-Official documentation was researched on October 23, 2026; services were not tested with live posting requests. The [evidence-based feasibility assessment](docs/data_source_feasibility.md) compares Greenhouse, Adzuna, USAJOBS, a publisher-hosted historical dataset, BLS OEWS and The Muse, including unresolved permissions, coverage and access.
-
-- **Conditional primary:** Greenhouse employer boards, because documented full-description access fits the skills objective. Requires approved employer sampling and storage/publication rights.
-- **Conditional fallback:** Adzuna, subject to terms/access clearance and acceptance of description-snippet limits.
-- **Supplementary:** BLS OEWS for contextual employment/wages; USAJOBS for a separately labeled federal perspective. A historical public dataset remains a reserve candidate.
-
-These are recommendations, not cleared acquisition plans. No data, credentials or API responses are included. Do not infer permission to redistribute raw records or even aggregates from public access alone.
-
-## Repository contents
+Python 3.11+, pandas, numpy, SQLite via built-in sqlite3, SQL, matplotlib, seaborn, Jupyter Notebook, Tableau on macOS, pytest, Git and GitHub.
 
 ```text
-bay-area-job-market-analytics/
-  README.md
-  requirements.txt
-  .gitignore
-  .env.example
-  data/
-    raw/.gitkeep
-    processed/.gitkeep
-  docs/
-    business_requirements.md
-    kpi_dictionary.md
-    data_source_feasibility.md
-    architecture.md
-    project_roadmap.md
-    github_workflow.md
-  src/__init__.py
-  sql/.gitkeep
-  notebooks/.gitkeep
-  dashboard/.gitkeep
-  reports/
-    phase1_quality_review.md
-    figures/.gitkeep
-  tests/.gitkeep
+Pinned CSV -> Immutable raw data + manifest -> Python cleaning/validation
+  -> SQLite -> SQL analytics -> Approved CSV exports -> Tableau -> Business insights
 ```
 
-Completed: the files above, documented decisions, source research and [Phase 1 quality review](reports/phase1_quality_review.md). Folder placeholders deliberately contain no datasets, ETL, analytical notebooks, SQL tables, dashboard or results. Expected later deliverables are permitted acquisition manifests, validated SQLite storage, tested processing code, SQL KPIs, notebooks/figures, reporting exports, a Tableau dashboard and a business recommendations brief.
+Only acquisition and raw profiling are implemented. The [architecture](docs/architecture.md) still proposes company/location/skill dimensions, a canonical posting/record fact and skill/location bridges for Phase 3. Any future file-row key identifies lineage, not a certified unique vacancy. Tableau Desktop Public Edition or an appropriate Desktop edition on macOS is planned; Tableau Public uploads must contain only permission-cleared fields/extracts.
 
-## Setup for Phase 1
+## Reproduce Phase 2
 
-Reading the Markdown documents requires no installation, account or API key. To prepare an optional local environment, open a terminal in this project directory and run:
+From this existing project directory, use Python 3.11+ and the [requirements](requirements.txt):
 
 ```bash
-python3 --version  # confirm Python 3.11 or newer
 python3 -m venv .venv
-source .venv/bin/activate  # macOS/Linux; Windows: .venv\Scripts\activate
+source .venv/bin/activate
 python -m pip install -r requirements.txt
+python -m src.luke_dataset acquire
+python -m src.luke_dataset profile
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q
 ```
 
-Installation is optional for reviewing Phase 1 and was not performed as part of this task. Version ranges in requirements are a starting compatibility policy, not a tested lockfile. After a successful authorized setup in Phase 2, record resolved versions for reproducibility. SQLite needs no separate Python package. Do not run an ingestion command: none exists yet.
+The local `.venv` already exists; do not recreate it just to read the report. Actual execution used a project environment for acquisition/tests and bundled Python/pandas for the full profile; the [environment record](reports/phase2_test_environment.json) records versions and reproducibility limits. The requirements are ranges, not a full lockfile. SQLite requires no separate Python package; Tableau/Git are external software.
 
-The `.env.example` contains empty placeholder variable names only. No `.env` is needed in Phase 1. When an approved later phase needs credentials, copy it locally to `.env`, fill only the selected provider's values privately and keep it ignored. Never put keys in notebooks, screenshots, request logs or GitHub. Source restrictions also apply to exported files; the ignore rules are a safeguard, not a license decision.
+Acquisition needs network access only if the verified snapshot is absent. It downloads the immutable revision, checks publisher file size/SHA-256 and records a manifest. Re-running reuses validated bytes. Profiling/tests are offline. Open [the executed profiling notebook](notebooks/01_data_profiling.ipynb) for real coverage/quality tables. It verifies provenance before reading the stored profile; it contains no fabricated example market data.
 
-Git tracks this project locally; the chosen GitHub visibility is private while developing. The [Git and GitHub working guide](docs/github_workflow.md) explains commits, branches, pushing, pull requests and GitHub Desktop. Check `git remote -v` and the GitHub commit history to verify remote linkage and upload status; a local commit alone does not mean the project is on GitHub. Review staged files and source permissions before every upload. Git setup does not authorize Phase 2.
+## Repository layout and privacy
 
-## Project phases
+- `config/`: approved source/release, access decision and versioned city/county reference; blocked Greenhouse configs are retained as history.
+- `data/raw/`: ignored original CSV, source evidence and manifest; `data/processed/` remains empty pending Phase 3.
+- `src/luke_dataset.py`: approved acquisition and raw quality profiler. `src/phase2.py` retains the blocked legacy Greenhouse offline tool.
+- `tests/`: synthetic TEST_ONLY structural tests, not research observations.
+- `notebooks/01_data_profiling.ipynb`: Phase 2 integrity and raw quality review.
+- `docs/`: requirements, KPIs, source evidence/attribution, execution plan, observed field dictionary, architecture, roadmap and Git guide.
+- `reports/`: actual raw profiling results, acceptance review and environment/provenance summaries. Historical reviews are labeled separately.
+- `sql/`, `dashboard/`, `reports/figures/`: placeholders for later approved phases.
+
+`.env.example` contains empty names only. No API key is required for this source. `.gitignore` excludes raw/processed data, local databases, secrets, environments, caches and OS metadata. Review notebook outputs and Tableau extracts before sharing. Private GitHub visibility does not replace license compliance. No commit or push was performed in this task; the [Git guide](docs/github_workflow.md) explains the workflow.
+
+## Phases and deliverables
 
 | Phase | Scope | Status |
 |---|---|---|
-| 1 | Setup, Business Understanding, Data Feasibility | Complete: documentation and skeleton only |
-| 2 | Data Acquisition & Data Profiling | Planned; requires explicit approval and source gates |
-| 3 | Data Cleaning, Validation & SQL Database | Planned |
+| 1 | Setup, Business Understanding, Data Feasibility | Complete; source-specific amendments recorded |
+| 2 | Data Acquisition & Data Profiling | Complete for approved historical Luke source |
+| 3 | Data Cleaning, Validation & SQL Database | Not started; requires approval |
 | 4 | Exploratory & Statistical Analysis | Planned |
 | 5 | Tableau Dashboard | Planned |
 | 6 | Business Recommendations, GitHub Portfolio & Resume | Planned |
 
-The [six-phase roadmap](docs/project_roadmap.md) lists goals, deliverables, acceptance criteria, dependencies and estimated effort, including the five-day accelerated target after approval and prerequisites. Its unchanged remaining estimate is 48–84 focused hours; the five-day target is ambitious and not a guaranteed normal-hours schedule. Phase 5 will prepare analysis-ready SQL-to-CSV exports and reconcile the interactive Tableau dashboard with SQL before any authorized publication. Phase 1 ends here. Source permission, sample design and the Phase 2 approval decision remain outstanding.
+The [roadmap](docs/project_roadmap.md) retains the requested five-day accelerated target and its effort/capacity caveats. Later deliverables are a tested cleaning workflow, local relational database, SQL KPIs, statistical notebooks/figures, permitted reporting CSVs, Tableau workbook and business brief. They are not completed assets. Phase 2 ends here; Phase 3 requires explicit approval.

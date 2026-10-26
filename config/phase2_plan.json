@@ -1,0 +1,28 @@
+{
+  "version": "luke-2023-v1",
+  "source": "lukebarousse/data_jobs",
+  "revision": "ed776e5a0a8c40ea9d5efbd800772ae52e140f3e",
+  "filename": "data_jobs.csv",
+  "expected_bytes": 231152089,
+  "expected_sha256": "635241ed09ccee18bdae1f83b45f26d6759e0aa2513c529f6190e9054062436c",
+  "raw_directory": "data/raw/luke_2023",
+  "profile_json": "reports/luke_2023_profile.json",
+  "historical_year": 2023,
+  "scope": "Nine-county Bay Area; preliminary exact city/CA matches for Phase 2 only",
+  "geographic_reference": "config/bay_area_cities.json",
+  "max_download_bytes": 300000000,
+  "chunk_rows": 50000,
+  "budget_usd": 0,
+  "target_roles": [
+    "Data Analyst",
+    "Data Scientist",
+    "Data Engineer",
+    "Machine Learning Engineer"
+  ],
+  "unsupported_metrics": [
+    "verified advertised annual salary",
+    "independent skill extraction",
+    "explicit hybrid/on-site share",
+    "population hiring trends"
+  ]
+}

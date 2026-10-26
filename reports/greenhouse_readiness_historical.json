@@ -1,0 +1,20 @@
+{
+  "status": "blocked",
+  "source": "greenhouse",
+  "plan_sha256": "833f4e93336bb7a16006bb372bba17fa785ab8f057697589267cea68c88adefc",
+  "blockers": [
+    "missing_or_invalid_permission_scoped_board_frame",
+    "source_permission_not_cleared",
+    "missing_reviewed_by",
+    "missing_evidence_reference",
+    "missing_retention_policy",
+    "permission_missing_automated_collection",
+    "permission_missing_local_storage",
+    "permission_missing_local_analysis",
+    "frame_not_covered_by_permission",
+    "missing_or_invalid_permission_dates"
+  ],
+  "network_requests_made": 0,
+  "observed_record_count": null,
+  "phase2_acceptance": "not_met_no_verified_live_snapshot"
+}

@@ -1,6 +1,22 @@
 # KPI dictionary
 
-Status: proposed definitions only; no values have been calculated. Scope and classification follow [business requirements](business_requirements.md).
+## Active Luke dataset amendment — approved October 26, 2026
+
+This section takes precedence for the acquired historical source. The original strict definitions below remain references, not claims of available fields.
+
+- **Observed dataset records:** count source rows or later reviewed retained records under an explicitly named Phase 3 policy. There is no native posting ID, so do not label row counts certified unique vacancies/postings. Any fingerprint is a duplicate candidate, not proof of identity.
+- **Role record share:** denominator is the later reviewed target-role record cohort, with publisher labels mapped transparently and ambiguity disclosed. Senior labels must not be silently dropped or merged. Phase 2 counts are preliminary labels, not that final cohort.
+- **Publisher-derived annual salary:** a potential separately named measure using positive finite salary_year_avg values; never substitute it for verified advertised-pay midpoint. Original bounds, currency and advertised-versus-estimated evidence are absent. Report source-unit uncertainty; do not show USD or compare currencies until original units are established. A median is Phase 4 work, not a Phase 2 result. Primary advertised-salary KPI stays unavailable.
+- **Derived-pay coverage:** nonmissing/valid publisher annual values divided by the chosen record cohort, with missingness and period restrictions visible. Keep hourly values separate; no automatic annualization.
+- **Publisher skill-tag presence/frequency:** later count distinct retained record-skill pairs after safe parsing. Denominator is records with usable populated tag lists; disclose missing/empty/malformed lists separately. These are inherited tags, not our own text mentions or verified requirements. Original-description skill metrics stay unavailable.
+- **Geography:** retained work-location evidence must meet the same nine-county definition. Phase 2's exact city/CA match is a conservative diagnostic; unincorporated/multi-location/vague labels need Phase 3 review. Never infer work location from search_location or company headquarters.
+- **Work arrangements:** a parsed false work-from-home flag does not mean on-site. Explicit remote/hybrid/on-site shares and arrangement coverage under the original evidence requirement are unavailable.
+- **Temporal comparisons:** dates describe publisher records from 2023. Timezone, original-posting semantics and collection consistency are not verified; hiring/posting-trend KPIs remain disabled. Calendar completeness in a file is not evidence of representative temporal coverage.
+
+See the [field dictionary](phase2_field_dictionary.md) and [actual profile](../reports/luke_2023_profile.json). No unavailable value is replaced with zero or invented evidence.
+
+
+Original conceptual definitions; source-specific availability is governed by the active amendment above. Phase 2 reports raw quality/coverage diagnostics, not accepted business KPI results. Scope and classification follow [business requirements](business_requirements.md).
 
 ## Common measurement contract
 

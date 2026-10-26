@@ -1,6 +1,11 @@
 # Business requirements
 
-Status: Phase 1 design, prepared October 23, 2026. No job postings have been acquired and no findings are claimed. This document is the authority for scope; the KPI dictionary is the authority for measurement.
+## Active dataset amendment — approved October 26, 2026
+
+The active study is **2023 Bay Area Data Jobs & Skills Analysis**, using the approved Luke Barousse snapshot. This supersedes the prospective/live-source assumptions below, while retaining the hypothetical career/workforce scenario, nine counties, four target roles, explicit uncertainty and Phase 3 approval gate. Ask about observed historical records, publisher role labels, inherited skill tags and city differences. Salary questions concern publisher-derived values only, with units/provenance limitations. Do not claim current demand, actual hires, independent text extraction or explicit hybrid/on-site behavior. Detailed requirements/seniority beyond original title evidence are unavailable. The source decision and measured coverage are in [Phase 2 results](../reports/phase2_status.md). The original requirements below remain the stricter conceptual reference; the active KPI amendment controls what is currently reportable.
+
+
+Historical reference: Phase 1 design, prepared October 23, 2026, before acquisition. The approved dataset amendment above now controls source-specific scope; Phase 2 profiling is complete. This document is the authority for scope; the KPI dictionary is the authority for measurement.
 
 ## Scenario and stakeholders
 

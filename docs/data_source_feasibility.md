@@ -76,3 +76,15 @@ For reproducibility, later record exact source/board frame, safe parameters, col
 ## Research verification limits
 
 The shell initially failed because its default working directory no longer existed; using an explicit shell and existing temporary directory restored access. The supplied workspace was recreated at its authorized path. The Node REPL failed to start and was not needed. Web research succeeded for the cited sources except the documented Muse timeout and inaccessible attempted Greenhouse terms URL. API execution, account prices/quotas, full payload quality, data coverage and dataset contents are deliberately untested. No outside contact or permission request was sent on the user's behalf.
+
+## Phase 2 recheck — October 25, 2026
+
+Phase 2 is now authorized, but the user confirmed no permission evidence is available. The [Greenhouse legal index](https://www.greenhouse.com/legal) and [master subscription agreement](https://www.greenhouse.com/master-subscription-agreement) are reachable; this updates the earlier inaccessible-URL finding, not the permission decision. No third-party collection/storage/publication clearance has been established. Adzuna's terms were rechecked without resolving its existing dependencies. Acquisition remains blocked. See the [Phase 2 execution plan](phase2_execution_plan.md) for the evidence register, offline support and unmet acceptance criteria. No live source coverage or payload research results are claimed.
+
+## Alternative-source decision review — October 25, 2026
+
+A [new permission-and-five-day comparison](source_options_review.md) recommends USAJOBS Historic JOA plus Announcement Text **only if the user approves a federal-focused scope**. Endpoint-specific official references explicitly document unauthenticated access for both, resolving the previous historic-authentication uncertainty. Current-job Search remains distinct and key-authenticated. Published USAJOBS Public Data terms establish relevant reuse permissions subject to stated exceptions; a separate provider email is not inherently required. This is a recommendation awaiting source/scope approval, not a source switch or empirical coverage finding. No data was requested and no permission flags were enabled.
+
+## Approved source decision — October 26, 2026
+
+User approved Luke Barousse's historical dataset after the portfolio comparison. Revision `ed776e5a0a8c40ea9d5efbd800772ae52e140f3e` was acquired and verified under its published Apache-2.0 declaration; the full file has been profiled. This supersedes the pending primary/fallback and federal-source proposal, not the historic research record. Read [data attribution](data_attribution.md), [execution plan](phase2_execution_plan.md) and [Phase 2 findings](../reports/phase2_status.md). Greenhouse remains blocked. Publication is a separate review; raw data remains ignored.
