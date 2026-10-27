@@ -1,0 +1,25 @@
+{
+  "phase": 3,
+  "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python -m pytest -q",
+  "exit_code": 0,
+  "result": "175 passed in 1.65s",
+  "elapsed_seconds": 1.939,
+  "environment": {
+    "python": "3.12.7",
+    "sqlite": "3.45.3"
+  },
+  "scope": "All legacy Phase 2 tests plus Phase 3 pure rules, synthetic TEST_ONLY end-to-end, database constraints, audit reconciliation, idempotency, failure preservation, source integrity/permission/schema guards and report staleness checks.",
+  "limitations": [
+    "No independent human occupation labels; assistant title review is documented separately.",
+    "No statistical analysis or Tableau verification performed; later phases remain unstarted.",
+    "No new job data collected, no credentials required, and no commit/push performed."
+  ],
+  "real_dataset_verification": "See phase3_cleaning_report.json for the full offline build, immutable raw hash, semantic rerun checksum and zero-violation database checks.",
+  "independent_audit": {
+    "all_input_decisions_reconciled": 785741,
+    "exact_duplicate_keepers_checked": 101,
+    "nine_counties_present": true,
+    "four_target_roles_present": true,
+    "raw_and_processed_files_gitignored": true
+  }
+}

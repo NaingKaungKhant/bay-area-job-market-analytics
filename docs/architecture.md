@@ -2,10 +2,10 @@
 
 ## Active source amendment — October 26, 2026
 
-The approved Phase 2 source is a complete, pinned historical Luke CSV rather than a live job API. Raw storage contains immutable CSV plus source/license evidence and manifest. The generic source-native ID/description/salary-band fields in the conceptual schema below are not available in this source; leave them unavailable rather than inventing IDs, descriptions or pay bounds. A future record lineage key may identify a file row, not an independently verified unique posting. Store inherited role/skill/salary provenance distinctly. The dimensions/bridges/SQLite architecture remains proposed Phase 3 work; only acquisition and profiling are implemented. See [Phase 2 results](../reports/phase2_status.md).
+The approved Phase 2 source is a complete, pinned historical Luke CSV rather than a live job API. Raw storage contains immutable CSV plus source/license evidence and manifest. The generic source-native ID/description/salary-band fields in the conceptual schema below are not available in this source; leave them unavailable rather than inventing IDs, descriptions or pay bounds. A future record lineage key may identify a file row, not an independently verified unique posting. Store inherited role/skill/salary provenance distinctly. Phase 3 now implements the source-specific retained-record model, commented schema, offline cleaning loader and validation. See the [implemented schema/rules](phase3_cleaning_rules.md) and [cleaning report](../reports/phase3_cleaning_report.md). These supersede generic native-ID/salary assumptions below. SQL business analysis and Tableau remain planned. See [Phase 2 results](../reports/phase2_status.md).
 
 
-Historical Phase 1 conceptual architecture. SQL DDL/database, production ETL, analytical queries and dashboard remain unimplemented. Phase 2 acquisition/profiling now exist as described in the source amendment above.
+Historical Phase 1 conceptual architecture follows. Phase 2 acquisition/profiling and Phase 3 cleaning/database now exist as described above; analytical queries and dashboard remain unimplemented. The original proposed table list is a historical design, not the exact implemented source schema.
 
 ```text
 Approved Data Source

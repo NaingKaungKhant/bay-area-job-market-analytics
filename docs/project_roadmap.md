@@ -1,6 +1,6 @@
 # Six-phase project roadmap
 
-Phases 1 and 2 are complete for the approved historical Luke dataset. Phase 2 acquired and profiled the pinned CSV and documented unsupported metrics. Phase 3 has not started and requires approval. See the [Phase 2 status report](../reports/phase2_status.md). Estimates are planning ranges in focused learner-hours, not measured effort or deadlines. Credential approvals, provider responses, Tableau edition/access checks and optional prospective observation windows can add calendar time. Each phase requires acceptance of the previous phase; only explicit user approval permits starting Phase 2.
+Phases 1–3 are complete for the approved historical Luke dataset. Phase 2 acquired/profiled the pinned CSV. Phase 3 produced versioned commented cleaning, a validated local SQLite model, row/field audits and a cleaning report. See the [Phase 3 completion evidence](../reports/phase3_cleaning_report.md). Phase 4 requires explicit approval. See the [Phase 2 status report](../reports/phase2_status.md). Estimates are planning ranges in focused learner-hours, not measured effort or deadlines. Credential approvals, provider responses, Tableau edition/access checks and optional prospective observation windows can add calendar time. Each phase requires acceptance of the previous phase and explicit user approval before starting the next. The current approval covered Phase 3 only.
 
 | Phase | Goals | Planned deliverables | Acceptance criteria | Dependencies | Estimated effort |
 |---|---|---|---|---|---|

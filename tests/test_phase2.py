@@ -216,11 +216,13 @@ def test_preflight_cli_is_offline_and_nonzero_when_blocked():
     assert json.loads(result.stdout)['network_requests_made']==0
 
 
-def test_no_collection_implementation_or_phase3_outputs():
+def test_legacy_phase2_does_not_collect_or_load_database():
     source=(ROOT/'src/phase2.py').read_text()
     assert 'import requests' not in source
-    assert not list((ROOT/'sql').glob('*.sql'))
-    assert not list(ROOT.glob('*.sqlite*'))
+    # Phase 3 is now authorized in a separate module. The blocked legacy
+    # Greenhouse tool must still remain offline and must not load databases.
+    assert 'import sqlite3' not in source
+    assert 'sqlite3.connect' not in source
 
 
 def test_frame_cannot_exceed_planned_request_budget(scoped_plan, test_access):

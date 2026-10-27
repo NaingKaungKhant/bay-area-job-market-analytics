@@ -1,0 +1,71 @@
+{
+  "version": "luke-cleaning-v1",
+  "historical_year": 2023,
+  "role_patterns": {
+    "Data Analyst": "\\bdata[ -]+analysts?\\b",
+    "Data Scientist": "\\bdata[ -]+scientists?\\b",
+    "Data Engineer": "\\bdata[ -]+engineers?\\b",
+    "Machine Learning Engineer": "\\b(?:machine[ -]+learning|ml)[ -]+engineers?\\b"
+  },
+  "skill_aliases": {
+    "powerbi": "power bi",
+    "power_bi": "power bi",
+    "python3": "python",
+    "golang": "go"
+  },
+  "location_aliases": {
+    "st helena": "St. Helena"
+  },
+  "additional_places": {
+    "Alviso": "Santa Clara",
+    "Angwin": "Napa",
+    "Bay Point": "Contra Costa",
+    "Bodega Bay": "Sonoma",
+    "Bolinas": "Marin",
+    "Canyon": "Contra Costa",
+    "Castro Valley": "Alameda",
+    "Diablo": "Contra Costa",
+    "Kentfield": "Marin",
+    "Lagunitas-Forest Knolls": "Marin",
+    "Marin City": "Marin",
+    "Moffett Field": "Santa Clara",
+    "Oakville": "Napa",
+    "Pacheco": "Contra Costa",
+    "Port Costa": "Contra Costa",
+    "Rodeo": "Contra Costa",
+    "San Gregorio": "San Mateo",
+    "San Lorenzo": "Alameda",
+    "Stanford": "Santa Clara",
+    "West Menlo Park": "San Mateo"
+  },
+  "geography_evidence": {
+    "reviewed_on": "2026-10-26",
+    "additional_places_reference": "https://admin.cdn.sos.ca.gov/ca-roster/2025/unincorporated-areas.pdf",
+    "Canyon": "https://www.contracosta.ca.gov/DocumentCenter/View/3223/2009-Housing-Element-Update",
+    "Lagunitas-Forest Knolls": "https://www.marincounty.gov/sites/g/files/fdkgoe241/files/2024-02/marin-county-vulnerability-assessment_final_with-appendicies_reduced-20220117.pdf",
+    "Moffett Field": "https://historicproperties.arc.nasa.gov/h3historysite/one/",
+    "Stanford": "https://d5.santaclaracounty.gov/district-5-office",
+    "Alviso_note": "A named San Jose community, not a separate incorporated city. All additions use community precision to avoid city inflation.",
+    "limits": "Curated reference, not exhaustive. Ambiguous Princeton, CA is not assumed to mean Princeton-by-the-Sea; unresolved labels remain excluded pending evidence. Modern references support community/county membership, not address-level boundary accuracy in 2023. El Sobrante has distinct California Census places; Emerald Hills also names a San Diego neighborhood. Do not select a Bay county without disambiguating evidence.",
+    "ambiguous_names": "https://tigerweb.geo.census.gov/tigerwebmain/Files/acs26/tigerweb_acs26_cdp_2025_acs25_ca.html",
+    "Emerald_Hills_ambiguity": "https://www.sandiego.gov/citycouncil/cd4/communities/emerald-hills"
+  },
+  "deduplication": "Only identical values across all 17 original CSV fields; keep first data-row ordinal. Similar employer/title/location/date records remain separate candidates.",
+  "salary_policy": "Positive finite publisher values in integer hundredths of unknown source units, ROUND_HALF_EVEN. No currency inference, imputation or annualization. Advertised-pay eligibility always false.",
+  "approval": "User authorized Phase 3 local cleaning/database/tests on 2026-10-26; no Phase 4 or publication authorized.",
+  "ambiguous_places": [
+    "El Sobrante",
+    "Emerald Hills",
+    "Princeton",
+    "Monte Vista"
+  ],
+  "non_target_title_pattern": "\\b(?:business[ -]+analysts?|cloud[ -]+engineers?|software[ -]+engineers?|software[ -]+developers?|java[ -]+(?:developers?|programmers?))\\b",
+  "reviewed_role_overrides": [
+    {
+      "title": "100% Remote Data Engineer | Software Developer background needed",
+      "publisher_label": "Data Engineer",
+      "role": "Data Engineer",
+      "reason": "Assistant title review: Data Engineer is the advertised occupation; Software Developer background needed describes experience, not a second occupation. No work-arrangement classification is inferred."
+    }
+  ]
+}
