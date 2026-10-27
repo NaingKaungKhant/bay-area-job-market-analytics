@@ -1,0 +1,97 @@
+{
+  "notebook_status": "executed",
+  "notebooks": [
+    {
+      "notebook": "notebooks/02_exploratory_analysis.ipynb",
+      "status": "executed",
+      "code_cells": 7,
+      "error_outputs": 0,
+      "elapsed_seconds": 20.958,
+      "sha256": "a01e474251812c5f73ce4ae2dbfd18d3fd95b4d3b90a2254934ca1e919d7006e"
+    },
+    {
+      "notebook": "notebooks/03_descriptive_comparisons.ipynb",
+      "status": "executed",
+      "code_cells": 6,
+      "error_outputs": 0,
+      "elapsed_seconds": 3.086,
+      "sha256": "32e901a09760a59fc9fb7f2cceca4fc4ec6e2588d64a5edea115dcc649735252"
+    }
+  ],
+  "phase": 4,
+  "verified_on": "2026-10-27",
+  "kernel_python": "/Users/nkaungkhant/Desktop/Data_Analytic /bay-area-job-market-analytics/.venv/bin/python",
+  "tests": {
+    "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python -m pytest -q",
+    "exit_code": 0,
+    "result": "198 passed in 13.05s",
+    "elapsed_seconds": 13.566,
+    "python": "3.12.7",
+    "fixtures": "Synthetic TEST_ONLY; never used for research findings."
+  },
+  "status": "phase4_complete",
+  "sql_python_reconciliation": {
+    "cohort_audit": {
+      "columns": 3,
+      "rows": 4,
+      "status": "matched"
+    },
+    "county_by_role": {
+      "columns": 4,
+      "rows": 32,
+      "status": "matched"
+    },
+    "geography_by_role": {
+      "columns": 10,
+      "rows": 243,
+      "status": "matched"
+    },
+    "geography_coverage": {
+      "columns": 7,
+      "rows": 1,
+      "status": "matched"
+    },
+    "locality_skill_by_role": {
+      "columns": 11,
+      "rows": 5495,
+      "status": "matched"
+    },
+    "role_summary": {
+      "columns": 16,
+      "rows": 4,
+      "status": "matched"
+    },
+    "seniority_by_role": {
+      "columns": 5,
+      "rows": 23,
+      "status": "matched"
+    },
+    "skill_by_role": {
+      "columns": 10,
+      "rows": 780,
+      "status": "matched"
+    },
+    "skill_count_summary": {
+      "columns": 8,
+      "rows": 4,
+      "status": "matched"
+    }
+  },
+  "figure_count": 7,
+  "figure_artist_checks": "passed",
+  "visual_review": "All seven figures inspected; wrapped coverage caption corrected and final canvas-bounds checks passed.",
+  "current_artifact_hashes_verified": true,
+  "phase3_database_unchanged": true,
+  "phase3_source_geography_roles_cleaning_schema_unchanged": true,
+  "result_sha256": "9e42eafc1394eaa59990c7504c2f0ebc4255e4f2d7c63f38e9dc1b5c8e7ac632",
+  "rerun_same_results": true,
+  "raw_rehashed_in_phase4": false,
+  "raw_verification_limitation": "Raw-directory CSV/manifest reads stalled and were interrupted. No new job data downloaded; recorded Phase 3 acquisition checksum plus actual database semantic/byte checks used.",
+  "notebook_execution_note": "Initial sandbox kernel bind failed. Both notebooks then executed successfully with permission for local kernel ports. No error outputs.",
+  "documentation_links_checked": true,
+  "credential_pattern_scan": "no matches",
+  "no_new_job_data_downloaded": true,
+  "no_publication": true,
+  "no_commit_or_push": true,
+  "phase5_started": false
+}

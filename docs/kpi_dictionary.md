@@ -13,6 +13,8 @@ This section takes precedence for the acquired historical source. The original s
 - **Work arrangements:** a parsed false work-from-home flag does not mean on-site. Explicit remote/hybrid/on-site shares and arrangement coverage under the original evidence requirement are unavailable.
 - **Temporal comparisons:** dates describe publisher records from 2023. Timezone, original-posting semantics and collection consistency are not verified; hiring/posting-trend KPIs remain disabled. Calendar completeness in a file is not evidence of representative temporal coverage.
 
+Phase 4 implements the supported measures in [named SQL queries](../sql/003_phase4_analysis.sql), with cohort/coverage/suppression definitions in [analysis methods](phase4_analysis_methods.md). No source, geography, role, cleaning or schema definition changed. Salary amounts/comparisons and time trends remain disabled; only derived-pay field coverage is reported.
+
 See the [field dictionary](phase2_field_dictionary.md) and [actual profile](../reports/luke_2023_profile.json). No unavailable value is replaced with zero or invented evidence.
 
 

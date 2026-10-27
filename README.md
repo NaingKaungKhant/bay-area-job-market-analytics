@@ -1,6 +1,6 @@
 # 2023 Bay Area Data Jobs & Skills Analysis
 
-**Status: Phases 1–3 complete. Phase 3 cleaning and local SQLite validation are complete; Phase 4 requires approval.**
+**Status: Phases 1–4 complete locally. Phase 4 SQL/Python analysis, charts and executed notebooks are complete; Phase 5 requires approval.**
 
 An end-to-end Data Analyst portfolio project examining historical data-career advertisements in the nine-county San Francisco Bay Area. The approved source is Luke Barousse's 2023 dataset. This is a historical observed-record study, not current market intelligence or a count of actual hires.
 
@@ -8,7 +8,7 @@ An end-to-end Data Analyst portfolio project examining historical data-career ad
 
 A hypothetical workforce intelligence/career-services team wants to understand advertised data-career roles, inherited skill tags and geographic differences to help graduates prioritize learning. Inconsistent titles, missing pay, duplicate candidates and preprocessed fields require transparent definitions.
 
-The project will demonstrate reproducible Python ingestion, relational design, SQL, statistical reasoning and Tableau. Acquisition, quality profiling, commented Python cleaning and a validated local SQLite database are implemented. Business analysis and the Tableau dashboard remain planned. Source limitations are documented instead of filled with invented values.
+The project will demonstrate reproducible Python ingestion, relational design, SQL, statistical reasoning and Tableau. Acquisition, quality profiling, commented Python cleaning and a validated local SQLite database are implemented. Reconciled descriptive analysis, charts and executed Jupyter notebooks are complete. Tableau and final portfolio recommendations remain planned. Source limitations are documented instead of filled with invented values.
 
 ## Scope and analytical questions
 
@@ -16,7 +16,7 @@ Geography includes Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo,
 
 Target roles are Data Analyst, Data Scientist, Data Engineer and Machine Learning Engineer across industries and seniorities. Publisher labels are evidence, not our final accepted classifications. Ambiguous original titles remain reviewable; senior labels will not be silently discarded or merged. Remote eligibility and actual work location stay distinct; search_location and employer headquarters do not establish a Bay Area job location.
 
-Supported candidate questions, subject to later validation:
+Phase 4 answers the supported historical questions below; salary comparisons remain disabled:
 
 1. How are historical retained records distributed across the four target roles and explicit title-based seniority?
 2. Which publisher-extracted skill tags occur within roles, and what usable-tag coverage supports comparisons?
@@ -45,7 +45,7 @@ Pinned CSV -> Immutable raw data + manifest -> Python cleaning/validation
   -> SQLite -> SQL analytics -> Approved CSV exports -> Tableau -> Business insights
 ```
 
-The [implemented Phase 3 model](docs/phase3_cleaning_rules.md) contains company/location/skill dimensions, a retained-record fact, skill/location bridges, snapshot metadata and source-row lineage. File-row keys identify lineage, not certified unique vacancies. SQL business metrics and dashboard exports remain future work. Tableau Desktop Public Edition or an appropriate Desktop edition on macOS is planned; Tableau Public uploads must contain only permission-cleared fields/extracts.
+The [implemented Phase 3 model](docs/phase3_cleaning_rules.md) contains company/location/skill dimensions, a retained-record fact, skill/location bridges, snapshot metadata and source-row lineage. File-row keys identify lineage, not certified unique vacancies. Named read-only SQL analysis queries are implemented. Dashboard-ready CSV exports and Tableau remain future work. Tableau Desktop Public Edition or an appropriate Desktop edition on macOS is planned; Tableau Public uploads must contain only permission-cleared fields/extracts.
 
 ## Reproduce Phase 2
 
@@ -78,16 +78,35 @@ Read the [brief cleaning report](reports/phase3_cleaning_report.md) and [beginne
 
 The complete 785,741-row input produces **16,223 retained Bay records**, including **12,631 accepted title-only target-role records** and a separately retained role audit cohort. These are cleaning counts, not final job-demand estimates. Exact duplicates across the full file: 101; retained-Bay exact duplicates: 0. Five similar-key candidates were preserved. Phase 3 adds community coverage and excludes one training advertisement; Phase 2 results remain unchanged as historical diagnostics.
 
+## Reproduce Phase 4
+
+Use the validated local Phase 3 database and the existing environment:
+
+```bash
+python -m src.run_analysis
+python -m src.execute_analysis_notebooks
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q
+```
+
+Read the [findings report](reports/phase4_findings.md), [methods guide](docs/phase4_analysis_methods.md), [SQL queries](sql/003_phase4_analysis.sql) and [verification record](reports/phase4_verification.json). Open the executed [exploratory notebook](notebooks/02_exploratory_analysis.ipynb) and [descriptive comparisons notebook](notebooks/03_descriptive_comparisons.ipynb). Local kernel startup requires localhost ports; the notebook runner uses temporary kernel/config/cache paths.
+
+Measured within the **12,631 accepted historical records**, Data Scientist represents 45.1%, Data Analyst 38.2%, Data Engineer 16.1%, and Machine Learning Engineer 0.5% (rounded shares). Among **4,093 usable Data Analyst lists / 4,829 accepted DA records**, SQL appears in 70.3%, Tableau 46.4%, and Python 45.3%. These are inherited tag rates, not verified requirements or market-wide demand. Across the cohort, usable tags cover 87.9%; seniority is unknown for 61.1%.
+
+All nine SQL tables reconcile independently with pandas. Seven source-attributed figures include small-group/coverage notes; logical missingness bounds accompany illustrative descriptive contrasts. No inferential p-values or population/causal claims are made. Salary amounts/comparisons, arrangement shares and hiring trends remain disabled. The raw-directory read stalled, so Phase 4 uses recorded Phase 3 acquisition evidence and verifies the actual SQLite content/file checksum instead of reopening raw data.
+
+![Inherited skill profiles, with role-specific usable-list denominators](reports/figures/phase4_skill_profile.png)
+
 ## Repository layout and privacy
 
 - `config/`: approved source/release, access decision and versioned city/county reference; blocked Greenhouse configs are retained as history.
 - `data/raw/`: ignored original CSV, source evidence and manifest; `data/processed/phase3/` contains the ignored local database and detailed audits.
 - `src/cleaning.py`, `src/build_database.py`, `src/phase3_report.py`: versioned cleaning, validated SQLite build and quality reporting. `src/luke_dataset.py`: approved acquisition and raw quality profiler. `src/phase2.py` retains the blocked legacy Greenhouse offline tool.
 - `tests/`: synthetic TEST_ONLY structural tests, not research observations.
-- `notebooks/01_data_profiling.ipynb`: Phase 2 integrity and raw quality review.
+- `notebooks/01_data_profiling.ipynb`: Phase 2 raw quality review; notebooks `02` and `03`: executed Phase 4 exploration and descriptive comparisons.
 - `docs/`: requirements, KPIs, source evidence/attribution, execution plan, observed field dictionary, architecture, roadmap and Git guide.
-- `reports/`: actual raw profiling, cleaning reports, classification review and test/verification records. Historical reviews are labeled separately.
-- `sql/`: commented schema and database validation queries. `dashboard/` and `reports/figures/` remain future-phase placeholders.
+- `reports/`: actual raw profiling, cleaning/classification reviews, Phase 4 aggregate analysis/findings and test/verification records. Historical reviews are labeled separately.
+- `sql/`: commented schema, database validation and read-only Phase 4 queries. `reports/figures/`: seven Phase 4 charts. `dashboard/` remains a future-phase placeholder.
+- `src/analysis.py`, `src/analysis_charts.py`, `src/run_analysis.py`, `src/execute_analysis_notebooks.py`: reconciliation, charts, findings and notebook execution.
 
 `.env.example` contains empty names only. No API key is required for this source. `.gitignore` excludes raw/processed data, local databases, secrets, environments, caches and OS metadata. Review notebook outputs and Tableau extracts before sharing. Private GitHub visibility does not replace license compliance. No commit or push was performed in this task; the [Git guide](docs/github_workflow.md) explains the workflow.
 
@@ -98,8 +117,8 @@ The complete 785,741-row input produces **16,223 retained Bay records**, includi
 | 1 | Setup, Business Understanding, Data Feasibility | Complete; source-specific amendments recorded |
 | 2 | Data Acquisition & Data Profiling | Complete for approved historical Luke source |
 | 3 | Data Cleaning, Validation & SQL Database | Complete locally; report and validation recorded |
-| 4 | Exploratory & Statistical Analysis | Planned |
+| 4 | Exploratory & Statistical Analysis | Complete locally; descriptive comparisons, validated charts and executed notebooks |
 | 5 | Tableau Dashboard | Planned |
 | 6 | Business Recommendations, GitHub Portfolio & Resume | Planned |
 
-The [roadmap](docs/project_roadmap.md) retains the requested five-day accelerated target and its effort/capacity caveats. Remaining deliverables are SQL business KPIs, statistical notebooks/figures, permitted reporting CSVs, a Tableau workbook and a business brief. These remain planned. Phase 3 ends here; Phase 4 requires explicit approval.
+The [roadmap](docs/project_roadmap.md) retains the requested five-day accelerated target and its effort/capacity caveats. Remaining deliverables are permitted dashboard CSVs, a Tableau workbook and the final business/portfolio brief. These remain planned. Phase 4 ends here; Phase 5 requires explicit approval.
