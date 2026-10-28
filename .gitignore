@@ -53,3 +53,8 @@ credentials/
 
 # Documentation, source, SQL, notebooks, and reviewed reports stay trackable.
 # Review source permissions and embedded data before publishing Tableau workbook/extract or report assets.
+
+# Phase 5 packaged Tableau workbooks contain local CSV/extract data.
+/dashboard/*.twbx
+/dashboard/*.hyper
+/dashboard/screenshots/*.png

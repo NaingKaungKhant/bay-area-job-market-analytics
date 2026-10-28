@@ -15,6 +15,8 @@ This section takes precedence for the acquired historical source. The original s
 
 Phase 4 implements the supported measures in [named SQL queries](../sql/003_phase4_analysis.sql), with cohort/coverage/suppression definitions in [analysis methods](phase4_analysis_methods.md). No source, geography, role, cleaning or schema definition changed. Salary amounts/comparisons and time trends remain disabled; only derived-pay field coverage is reported.
 
+Phase 5 exports the same accepted measures as explicit numerator/denominator slices; see [export grains and filter rules](phase5_export_dictionary.md). Roles use the four-role denominator in selected geography, while skill rates use populated lists in selected role/geography. Classification audit stays global and visibly labeled. Single-choice parameters do not permit summing overlapping rollups; native Tableau checks remain pending.
+
 See the [field dictionary](phase2_field_dictionary.md) and [actual profile](../reports/luke_2023_profile.json). No unavailable value is replaced with zero or invented evidence.
 
 

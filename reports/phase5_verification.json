@@ -1,0 +1,39 @@
+{
+  "phase": 5,
+  "status": "local_preparation_tested_native_tableau_acceptance_pending",
+  "tests": {
+    "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python -m pytest -q",
+    "exit_code": 0,
+    "result": "211 passed in 23.04s",
+    "elapsed_seconds": 23.65,
+    "python": "3.12.7"
+  },
+  "native_tableau_validation_performed": false,
+  "computer_use_error": "Computer Use permissions are not granted",
+  "no_publication": true,
+  "no_new_job_data": true,
+  "no_commit_or_push": true,
+  "phase6_started": false,
+  "database_unchanged": true,
+  "phase3_code_config_schema_unchanged": true,
+  "export_csv_sha256_verified": true,
+  "export_csv_roundtrip_verified": true,
+  "export_rerun_identical": true,
+  "direct_sql_vs_csv_checks": 138,
+  "representative_states": 7,
+  "tableau_actual_cells_filled": 0,
+  "workbook_xml_and_package_structural_checks": true,
+  "native_screenshots_captured": 0,
+  "workbook_builder_sha256": "cad7d0861f7255fd1c9af6be0ae1e2fa8f973b9223958ab98a1ed5d21e5a9a9a",
+  "package_sha256": "2ff8156205861fa8233a6c4255d953f3c31652fa684b55efe6fff2bff629d7c9",
+  "pending_user_steps": [
+    "Open workbook in installed Tableau",
+    "Resolve text connection/create local extract if prompted",
+    "Check all sheets and dashboard layouts",
+    "Run expected-versus-actual reconciliation",
+    "Save native workbook locally",
+    "Capture actual Tableau screenshots"
+  ],
+  "documentation_links_valid": true,
+  "credential_pattern_scan": "no matches"
+}

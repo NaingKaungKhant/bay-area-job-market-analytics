@@ -1,6 +1,6 @@
 # 2023 Bay Area Data Jobs & Skills Analysis
 
-**Status: Phases 1–4 complete locally. Phase 4 SQL/Python analysis, charts and executed notebooks are complete; Phase 5 requires approval.**
+**Status: Phases 1–4 complete. Phase 5 SQL/CSV preparation and local Tableau XML drafts are ready; native Tableau authoring/acceptance remains pending because Computer Use permissions were not granted. Phase 6 has not started.**
 
 An end-to-end Data Analyst portfolio project examining historical data-career advertisements in the nine-county San Francisco Bay Area. The approved source is Luke Barousse's 2023 dataset. This is a historical observed-record study, not current market intelligence or a count of actual hires.
 
@@ -8,7 +8,7 @@ An end-to-end Data Analyst portfolio project examining historical data-career ad
 
 A hypothetical workforce intelligence/career-services team wants to understand advertised data-career roles, inherited skill tags and geographic differences to help graduates prioritize learning. Inconsistent titles, missing pay, duplicate candidates and preprocessed fields require transparent definitions.
 
-The project will demonstrate reproducible Python ingestion, relational design, SQL, statistical reasoning and Tableau. Acquisition, quality profiling, commented Python cleaning and a validated local SQLite database are implemented. Reconciled descriptive analysis, charts and executed Jupyter notebooks are complete. Tableau and final portfolio recommendations remain planned. Source limitations are documented instead of filled with invented values.
+The project will demonstrate reproducible Python ingestion, relational design, SQL, statistical reasoning and Tableau. Acquisition, quality profiling, commented Python cleaning and a validated local SQLite database are implemented. Reconciled descriptive analysis, charts and executed Jupyter notebooks are complete. Phase 5 exports and local Tableau drafts now exist; native dashboard validation and final portfolio recommendations remain pending. Source limitations are documented instead of filled with invented values.
 
 ## Scope and analytical questions
 
@@ -45,7 +45,7 @@ Pinned CSV -> Immutable raw data + manifest -> Python cleaning/validation
   -> SQLite -> SQL analytics -> Approved CSV exports -> Tableau -> Business insights
 ```
 
-The [implemented Phase 3 model](docs/phase3_cleaning_rules.md) contains company/location/skill dimensions, a retained-record fact, skill/location bridges, snapshot metadata and source-row lineage. File-row keys identify lineage, not certified unique vacancies. Named read-only SQL analysis queries are implemented. Dashboard-ready CSV exports and Tableau remain future work. Tableau Desktop Public Edition or an appropriate Desktop edition on macOS is planned; Tableau Public uploads must contain only permission-cleared fields/extracts.
+The [implemented Phase 3 model](docs/phase3_cleaning_rules.md) contains company/location/skill dimensions, a retained-record fact, skill/location bridges, snapshot metadata and source-row lineage. File-row keys identify lineage, not certified unique vacancies. Named read-only SQL analysis queries are implemented. Phase 5 SQL-to-CSV exports and local Tableau drafts exist; native Tableau acceptance remains pending. Tableau Desktop Public Edition or an appropriate Desktop edition on macOS is planned; Tableau Public uploads must contain only permission-cleared fields/extracts.
 
 ## Reproduce Phase 2
 
@@ -96,6 +96,24 @@ All nine SQL tables reconcile independently with pandas. Seven source-attributed
 
 ![Inherited skill profiles, with role-specific usable-list denominators](reports/figures/phase4_skill_profile.png)
 
+## Phase 5 Tableau draft and manual completion
+
+Tableau Public for Apple silicon **2026.3.0** is installed; no installation is needed. Desktop automation returned **Computer Use permissions are not granted**, so no native workbook opening, rendering, filter validation or screenshot is claimed.
+
+```bash
+python -m src.tableau_exports
+python -m src.tableau_workbook
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q
+```
+
+Local outputs are in `data/processed/phase5/`: `dashboard_metrics.csv`, `scope_catalog.csv`, `role_catalog.csv`, and the export manifest. The single metric source has explicit keys, numerators/denominators and suppressed/null rates. Single-choice Role/Scope parameters prevent combining overlapping aggregate alternatives. No joins or multi-select aggregate filters are defined. See the [export dictionary](docs/phase5_export_dictionary.md).
+
+Open `dashboard/bay_area_2023_DRAFT.twbx` locally in Tableau and follow the [authoring/acceptance guide](docs/phase5_tableau_authoring.md). The generated XML draft defines two dashboards and ten sheets for role counts/shares, inherited skills, location associations, explicit seniority, coverage and global classification context. It is **not yet validated in Tableau**; the guide includes a complete CSV-based authoring recipe if the draft needs repair. Save your native work separately as `bay_area_2023_LOCAL.twbx` so regeneration preserves it.
+
+The [reconciliation checklist](reports/phase5_reconciliation.csv) contains matched SQL/CSV controls for seven representative selections; Tableau actual fields remain blank. See [Phase 5 status](reports/phase5_status.md), [export manifest](reports/phase5_export_manifest.json), and [local publication inventory](docs/phase5_publication_review.md). Native screenshots remain pending. Salary values/comparisons, hiring trends and arrangement shares stay disabled; annual-field coverage alone is available.
+
+Do not publish/upload to solve a local connection or save problem. Packaged workbooks contain data copies and remain ignored by Git; public release requires separate approval and license/embedded-data review. Phase 6 is not authorized.
+
 ## Repository layout and privacy
 
 - `config/`: approved source/release, access decision and versioned city/county reference; blocked Greenhouse configs are retained as history.
@@ -105,7 +123,7 @@ All nine SQL tables reconcile independently with pandas. Seven source-attributed
 - `notebooks/01_data_profiling.ipynb`: Phase 2 raw quality review; notebooks `02` and `03`: executed Phase 4 exploration and descriptive comparisons.
 - `docs/`: requirements, KPIs, source evidence/attribution, execution plan, observed field dictionary, architecture, roadmap and Git guide.
 - `reports/`: actual raw profiling, cleaning/classification reviews, Phase 4 aggregate analysis/findings and test/verification records. Historical reviews are labeled separately.
-- `sql/`: commented schema, database validation and read-only Phase 4 queries. `reports/figures/`: seven Phase 4 charts. `dashboard/` remains a future-phase placeholder.
+- `sql/`: commented schema, database validation and read-only Phase 4 queries. `reports/figures/`: seven Phase 4 charts. `dashboard/`: Phase 5 XML/package drafts and screenshot handoff instructions.
 - `src/analysis.py`, `src/analysis_charts.py`, `src/run_analysis.py`, `src/execute_analysis_notebooks.py`: reconciliation, charts, findings and notebook execution.
 
 `.env.example` contains empty names only. No API key is required for this source. `.gitignore` excludes raw/processed data, local databases, secrets, environments, caches and OS metadata. Review notebook outputs and Tableau extracts before sharing. Private GitHub visibility does not replace license compliance. No commit or push was performed in this task; the [Git guide](docs/github_workflow.md) explains the workflow.
@@ -118,7 +136,7 @@ All nine SQL tables reconcile independently with pandas. Seven source-attributed
 | 2 | Data Acquisition & Data Profiling | Complete for approved historical Luke source |
 | 3 | Data Cleaning, Validation & SQL Database | Complete locally; report and validation recorded |
 | 4 | Exploratory & Statistical Analysis | Complete locally; descriptive comparisons, validated charts and executed notebooks |
-| 5 | Tableau Dashboard | Planned |
+| 5 | Tableau Dashboard | Local exports/XML drafts ready; native authoring/acceptance pending |
 | 6 | Business Recommendations, GitHub Portfolio & Resume | Planned |
 
-The [roadmap](docs/project_roadmap.md) retains the requested five-day accelerated target and its effort/capacity caveats. Remaining deliverables are permitted dashboard CSVs, a Tableau workbook and the final business/portfolio brief. These remain planned. Phase 4 ends here; Phase 5 requires explicit approval.
+The [roadmap](docs/project_roadmap.md) retains the requested five-day accelerated target and its effort/capacity caveats. Native Tableau acceptance and screenshots remain pending in Phase 5. The final business/portfolio brief is Phase 6 and has not started. No public release is authorized.

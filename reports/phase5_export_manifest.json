@@ -1,0 +1,140 @@
+{
+  "export_version": "phase5-aggregate-v1",
+  "generated_at": "2026-10-27T17:43:16.855281-07:00",
+  "source": "lukebarousse/data_jobs",
+  "source_revision": "ed776e5a0a8c40ea9d5efbd800772ae52e140f3e",
+  "cleaning_rule_version": "luke-cleaning-v1",
+  "database_file_sha256": "d7a51a0b929d8f6f5746f35741bb312af781b2cc64e41a747ef59639ebc646cf",
+  "phase3_semantic_sha256": "dcefe7b9aa81bfaeb2175b687b5d014e1bc6551fd752c37624a8639aa73b40d0",
+  "sql_file_sha256": "2352403e145cfbe664927ad396276bf5e9a979a136ee00647e2ae31890b5aba2",
+  "export_script_sha256": "71a314550f7c41d13805457264f58cd603cc507464d48ab37326a25a06254f5c",
+  "encoding": "UTF-8",
+  "delimiter": ",",
+  "null_encoding": "empty CSV field; never interpret as zero",
+  "percentage_storage": "fraction 0..1; Tableau format Percentage (1 decimal)",
+  "files": {
+    "dashboard_metrics.csv": {
+      "rows": 128678,
+      "columns": [
+        "scope_key",
+        "role_selection",
+        "panel",
+        "category_type",
+        "category",
+        "numerator",
+        "denominator",
+        "comparison_allowed",
+        "warning",
+        "category_order",
+        "rate",
+        "source_revision",
+        "cleaning_rule_version"
+      ],
+      "sha256": "10ba6e475c8aa84cada38ddabbc1a548e5b5910acfa293803670d5547227b4eb",
+      "query_sha256": "ac805d84d62b13e811b10c771508d5ae6f39dd0e31c677c312dea9cfebd5d8f7",
+      "key": [
+        "scope_key",
+        "role_selection",
+        "panel",
+        "category_type",
+        "category"
+      ]
+    },
+    "scope_catalog.csv": {
+      "rows": 118,
+      "columns": [
+        "scope_key",
+        "scope_type",
+        "location_id",
+        "county"
+      ],
+      "sha256": "d6749580bf6a3f368fbd3436fe369c953d911b9bdc035d4e107661cbfd6fafb3",
+      "query_sha256": "d3b5c38b5d06eacdab44f0835de57d34608104c14bfa8106a0571b8d569e8b41",
+      "key": [
+        "scope_key"
+      ]
+    },
+    "role_catalog.csv": {
+      "rows": 5,
+      "columns": [
+        "role_selection"
+      ],
+      "sha256": "c69edbb25829aac4af7f77d8f9f329398cd7b94ab3efaede384affad4e4d4c8c",
+      "query_sha256": "255a325cfdf85b336e513e5bed07873565ff9c3e55aa45001487b33271af4dbd",
+      "key": [
+        "role_selection"
+      ]
+    }
+  },
+  "validation": {
+    "unique_metric_keys": true,
+    "nonnegative_integer_counts": true,
+    "denominators_valid": true,
+    "rates_reconciled": true,
+    "skill_suppression_n10": true,
+    "single_source_rule_version": true
+  },
+  "phase4_reconciliation": {
+    "cohort_audit": {
+      "status": "matched",
+      "rows": 4,
+      "columns": 3
+    },
+    "role_summary": {
+      "status": "matched",
+      "rows": 4,
+      "columns": 16
+    },
+    "skill_by_role": {
+      "status": "matched",
+      "rows": 780,
+      "columns": 10
+    },
+    "geography_by_role": {
+      "status": "matched",
+      "rows": 243,
+      "columns": 10
+    },
+    "county_by_role": {
+      "status": "matched",
+      "rows": 32,
+      "columns": 4
+    },
+    "geography_coverage": {
+      "status": "matched",
+      "rows": 1,
+      "columns": 7
+    },
+    "seniority_by_role": {
+      "status": "matched",
+      "rows": 23,
+      "columns": 5
+    },
+    "locality_skill_by_role": {
+      "status": "matched",
+      "rows": 5495,
+      "columns": 11
+    },
+    "skill_count_summary": {
+      "status": "matched",
+      "rows": 4,
+      "columns": 8
+    }
+  },
+  "expected_state_checks": 138,
+  "native_tableau_validation": "NOT PERFORMED: Computer Use permissions not granted",
+  "content_sha256": "ae86663912c0c2bfdfb908c6dd5831abec2d5859e2df9f441f3465e7a09b00f9",
+  "rerun_same_content": true,
+  "prohibited_fields_absent": [
+    "salary_amounts",
+    "currency",
+    "posting_dates",
+    "work_arrangement",
+    "company_names",
+    "job_titles",
+    "native_posting_ids",
+    "descriptions"
+  ],
+  "publication_authorized": false,
+  "limitations": "Precomputed single-selector slices only. Do not join aggregate rollups or sum across scope/role_selection/panels. Raw checksum is recorded Phase 3 evidence; no new raw data read."
+}

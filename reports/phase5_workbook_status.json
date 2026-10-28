@@ -1,0 +1,37 @@
+{
+  "status": "local_xml_draft_created_native_validation_pending",
+  "installed_tableau_public_version": "2026.3.0",
+  "computer_use": "permissions_not_granted",
+  "native_open_render_filter_validation": false,
+  "workbook_sha256": "8c4075a4390583ae7d3eecc953cdaf5ffb494fa675fd662963cb9f9d785eb1b0",
+  "package_sha256": "2ff8156205861fa8233a6c4255d953f3c31652fa684b55efe6fff2bff629d7c9",
+  "export_content_sha256": "ae86663912c0c2bfdfb908c6dd5831abec2d5859e2df9f441f3465e7a09b00f9",
+  "worksheets": 10,
+  "dashboards": 2,
+  "selectors": [
+    "Scope",
+    "Role",
+    "Geography view"
+  ],
+  "joins": 0,
+  "publication_authorized": false,
+  "package_contents": [
+    "bay_area_2023_DRAFT.twb",
+    "Data/dashboard_metrics.csv",
+    "Data/ATTRIBUTION.txt",
+    "Data/LICENSE-2.0.txt"
+  ],
+  "checks_performed": [
+    "XML well-formedness",
+    "validated export hashes",
+    "known package members"
+  ],
+  "pending": [
+    "Open workbook in installed Tableau",
+    "Resolve text connection/create local extract if prompted",
+    "Check all sheets and dashboard layouts",
+    "Run expected-versus-actual reconciliation",
+    "Save native workbook locally",
+    "Capture actual Tableau screenshots"
+  ]
+}
